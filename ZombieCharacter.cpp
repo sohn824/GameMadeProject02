@@ -3,6 +3,7 @@
 #include "ZombieCharacter.h"
 #include "Components/CapsuleComponent.h"
 #include "Engine.h"
+#include "ZombieAIController.h"
 
 // Sets default values
 AZombieCharacter::AZombieCharacter()
@@ -17,6 +18,10 @@ AZombieCharacter::AZombieCharacter()
 	//좀비에 쓸 스켈레탈 메시 정보
 
 	GetMesh()->SetSkeletalMesh(SK_ZombieMesh.Object);
+
+	AIControllerClass = AZombieAIController::StaticClass();
+	AutoPossessAI = EAutoPossessAI::PlacedInWorldOrSpawned;
+	//AI 컨트롤러 지정부분
 }
 
 // Called when the game starts or when spawned

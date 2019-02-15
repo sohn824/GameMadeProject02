@@ -2,7 +2,7 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
+#include "EngineMinimal.h"
 #include "GameFramework/Character.h"
 #include "ZombieCharacter.generated.h"
 
@@ -25,5 +25,8 @@ public:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+	UPROPERTY(EditDefaultsOnly, Category = "AI")
+	class UBehaviorTree* ZombieBT;
 
 };
