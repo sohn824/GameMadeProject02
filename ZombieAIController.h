@@ -18,7 +18,11 @@ class GAMEMADEPROJECT_API AZombieAIController : public AAIController
 public:
 	AZombieAIController();
 	virtual void Possess(class APawn* InPawn) override;
+	void SetEnemy(class APawn* InPawn);
 
+	//블랙보드 키
+	static const FName TargetEnemy;
+	static const FName IsInRange;
 
 private:
 	UBehaviorTreeComponent* BTComponent;

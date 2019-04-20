@@ -10,6 +10,8 @@
 #include "BehaviorTree/BlackboardData.h"
 #include "ZombieCharacter.h"
 
+const FName AZombieAIController::TargetEnemy(TEXT("TargetEnemy"));
+const FName AZombieAIController::IsInRange(TEXT("IsInRange"));
 
 AZombieAIController::AZombieAIController()
 {
@@ -32,5 +34,14 @@ void AZombieAIController::Possess(APawn* InPawn)
 		}
 		BTComponent->StartTree(*(Zombie->ZombieBT)); //좀비 비헤이비어 트리를 시작
 	}
+}
 
+void AZombieAIController::SetEnemy(APawn* InPawn)
+{
+	if (BBComponent) //블랙보드 컴포넌트가 존재한다면
+	{
+		//BBComponent->SetValue<UBlackboardKeyType_Object>("TargetEnemy", InPawn);
+		BBComponent->SetValueAsObject(TargetEnemy, InPawn);
+		//블랙보드 컴포넌트의 TargetEnemy 오브젝트형 변수를 매개변수인 InPawn(플레이어가 들어올 것)으로 설정해준다
+	}
 }
