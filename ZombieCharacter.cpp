@@ -98,11 +98,12 @@ void AZombieCharacter::OnSeePlayer(APawn* Pawn)
 void AZombieCharacter::LookingForOverlapActor()
 {
 	TArray<AActor*> Overlaps;
-	AttackRangeComponent->GetOverlappingActors(Overlaps, AGameMadeProjectCharacter::StaticClass()); //공격 범위 컴포넌트에 들어가 있는 액터들 중 플레이어 캐릭터만 Overlaps 배열에 추가
-
+	AttackRangeComponent->GetOverlappingActors(Overlaps, AGameMadeProjectCharacter::StaticClass());
+	//공격 범위 컴포넌트에 들어가 있는 액터들 중 플레이어 캐릭터만 Overlaps 배열에 추가
 	for (int32 i = 0; i < Overlaps.Num(); i++)
 	{
-		AGameMadeProjectCharacter* OverlappingPawn = Cast<AGameMadeProjectCharacter>(Overlaps[i]); //배열의 원소를 플레이어 캐릭터로 형변환
+		AGameMadeProjectCharacter* OverlappingPawn = Cast<AGameMadeProjectCharacter>(Overlaps[i]);
+		//배열의 원소를 플레이어 캐릭터로 형변환
 		if (OverlappingPawn)
 		{
 			ExecuteMeleeDamage(OverlappingPawn); //밑의 함수 구현부 참조
@@ -134,6 +135,11 @@ void AZombieCharacter::ExecuteMeleeDamage(AActor* HitActor)
 
 		HitActor->TakeDamage(5, DamageEvent, GetController(), this);
 		//데미지 양, 데미지 종류, 데미지를 주는 컨트롤러, 데미지를 주는 주체자
+		if (AttackSound)
+		{
+			UGameplayStatics::SpawnSoundAttached(AttackSound, RootComponent, NAME_None, FVector::ZeroVector, EAttachLocation::SnapToTarget, true);
+			//좀비 공격 사운드 재생
+		}
 	}
 }
 

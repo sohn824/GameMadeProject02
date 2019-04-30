@@ -3,6 +3,7 @@
 #pragma once
 
 #include "EngineMinimal.h"
+#include "PatrolPath.h"
 #include "AIController.h"
 #include "BlackKnightAIController.generated.h"
 
@@ -18,12 +19,21 @@ public:
 	ABlackKnightAIController();
 	virtual void Possess(class APawn* InPawn) override;
 	void SetEnemy(class APawn* InPawn);
+	void EnterGroggy();
+	void AfterGroggy();
+	void SetCanUseSkill();
 
 	//블랙보드 키
 	static const FName TargetLocation;
 	static const FName CanSeePlayer;
-
-
+	static const FName PatrolPathVector;
+	static const FName PatrolPathIndex;
+	static const FName PathIsLooping;
+	static const FName Direction;
+	static const FName WaitTime;
+	static const FName IsInRange;
+	static const FName IsGroggy;
+	static const FName CanUseSkill;
 
 private:
 	UPROPERTY()
@@ -31,5 +41,7 @@ private:
 
 	UPROPERTY()
 	class UBlackboardData* BBAsset;
-	
+
+	UPROPERTY(EditDefaultsOnly, Category = "Patrol")
+	APatrolPath* BlackKnightPatrolPath;
 };

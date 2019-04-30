@@ -17,7 +17,7 @@ EBTNodeResult::Type UBTTask_FindRandomLocation::ExecuteTask(UBehaviorTreeCompone
 	ABlackKnightAIController* BlackKnightController = Cast<ABlackKnightAIController>(OwnerComp.GetAIOwner());
 	if (NavSys && BlackKnightController && BlackKnightController->GetPawn())
 	{
-		const float SearchRadius = 1500.0f;
+		const float SearchRadius = 300.0f;
 
 		FNavLocation RandomLocation;
 

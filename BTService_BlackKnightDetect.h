@@ -4,21 +4,20 @@
 
 #include "CoreMinimal.h"
 #include "BehaviorTree/BTService.h"
-#include "BTService_Detect.generated.h"
+#include "BTService_BlackKnightDetect.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class GAMEMADEPROJECT_API UBTService_Detect : public UBTService
+class GAMEMADEPROJECT_API UBTService_BlackKnightDetect : public UBTService
 {
 	GENERATED_BODY()
 
 public:
-	UBTService_Detect();
-	
+	UBTService_BlackKnightDetect();
+
 protected:
 	virtual void TickNode(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory, float DeltaSeconds) override;
-
 	
 };

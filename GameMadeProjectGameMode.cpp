@@ -3,6 +3,7 @@
 #include "GameMadeProjectGameMode.h"
 #include "GameMadeProjectCharacter.h"
 #include "UObject/ConstructorHelpers.h"
+#include "Engine.h"
 
 AGameMadeProjectGameMode::AGameMadeProjectGameMode()
 {
@@ -12,6 +13,6 @@ AGameMadeProjectGameMode::AGameMadeProjectGameMode()
 	{
 		DefaultPawnClass = PlayerPawnBPClass.Class;
 	}
-
+	
 }
 

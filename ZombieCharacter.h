@@ -54,6 +54,12 @@ public:
 	UPROPERTY(VisibleAnywhere, Category = "AI")
 	UCapsuleComponent* AttackRangeComponent;
 
+	UPROPERTY(EditDefaultsOnly, Category = "Sound")
+	class USoundCue* AttackSound;
+
+	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category = "Sound")
+	class USoundCue* DeathSound;
+
 	float LastSeenTime; //마지막으로 플레이어를 발견한 시간
 	bool bSensedTarget; //플레이어를 감지했는지 여부
 

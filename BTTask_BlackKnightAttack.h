@@ -2,20 +2,19 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
+#include "EngineMinimal.h"
 #include "BehaviorTree/BTTaskNode.h"
-#include "BTTask_TurnToTarget.generated.h"
+#include "BTTask_BlackKnightAttack.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class GAMEMADEPROJECT_API UBTTask_TurnToTarget : public UBTTaskNode
+class GAMEMADEPROJECT_API UBTTask_BlackKnightAttack : public UBTTaskNode
 {
 	GENERATED_BODY()
-
 public:
-	UBTTask_TurnToTarget();
+	UBTTask_BlackKnightAttack();
 	virtual EBTNodeResult::Type ExecuteTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory) override;
 	
 };

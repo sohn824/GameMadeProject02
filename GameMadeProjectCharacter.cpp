@@ -25,10 +25,10 @@ AGameMadeProjectCharacter::AGameMadeProjectCharacter()
 	BaseLookUpRate = 45.f;
 
 	// Initialize Character Attributes
-	CurrentHealth = 100.0f;
-	MaxHealth = 100.0f;
-	CurrentMana = 100.0f;
-	MaxMana = 100.0f;
+	CurrentHealth = 200.0f;
+	MaxHealth = 200.0f;
+	CurrentMana = 200.0f;
+	MaxMana = 200.0f;
 	UpgradedStrength = 1.0f;
 
 	// Initialize Skill Variables
@@ -231,7 +231,6 @@ void AGameMadeProjectCharacter::MoveRight(float Value)
 //Bind Action
 void AGameMadeProjectCharacter::Attack()
 {
-
 	if (IsWeaponEquiped == true)
 	{
 		if (IsDefending == false)
